@@ -146,7 +146,7 @@ static BOOL _SocketAddressFromString(NSString * addrStr, BOOL isNumeric, UInt16 
     
     // Have to release the returned address information here
     freeaddrinfo(pLookup);
-    return ( 0 );
+    return ( YES );
 }
 
 #pragma mark -
