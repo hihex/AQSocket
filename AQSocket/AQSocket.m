@@ -673,6 +673,9 @@ static BOOL _SocketAddressFromString(NSString * addrStr, BOOL isNumeric, UInt16 
             _socketRef = NULL;
         }
     }];
+
+    if ( eventHandler != nil )
+        eventHandler(AQSocketEventConnected, nil);
     
     // Next the socket reader object. This will keep track of all the data blobs
     // returned via dispatch_io_read(), providing peek support to the upper
