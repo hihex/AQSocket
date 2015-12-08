@@ -685,12 +685,12 @@ static BOOL _SocketAddressFromString(NSString * addrStr, BOOL isNumeric, UInt16 
     AQSocketReader * aSocketReader = [AQSocketReader new];
 #if USING_MRR
     _socketReader = [aSocketReader retain];
+    AQSocket *weakSelf = self;
 #else
     _socketReader = aSocketReader;
+    __weak AQSocket *weakSelf = self;
 #endif
-    
-    __maybe_weak AQSocket *weakSelf = self;
-    
+
     // Now we install a callback to tell us when new data arrives.
     _socketIO.readHandler = ^(NSData * data, NSError * error){
         AQSocket *strongSelf = weakSelf;

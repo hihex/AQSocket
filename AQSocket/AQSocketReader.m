@@ -66,7 +66,7 @@
 
 + (id) allocWithZone: (NSZone *) zone
 {
-    if ( self == [AQSocketReader class] && dispatch_data_create != 0 )
+    if ( self == [AQSocketReader class] && &dispatch_data_create != 0 )
     {
         return ( [AQSocketDispatchDataReader allocWithZone: zone] );
     }
